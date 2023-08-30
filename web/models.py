@@ -13,7 +13,7 @@ class Language(models.Model):
         verbose_name_plural = 'Языки'
 
 
-class Category(models.Model):
+class Practice(models.Model):
     title = models.CharField(_("title"), max_length=100)
     image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
     description = models.TextField(_("description"), max_length=500)
@@ -23,5 +23,42 @@ class Category(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Деятельность'
+        verbose_name_plural = 'Деятельности'
+
+
+class Experience(models.Model):
+    title = models.CharField(_("title"), max_length=100)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Опыт'
+        verbose_name_plural = 'Опыт'
+
+
+class Principle(models.Model):
+    title = models.CharField(_("title"), max_length=100)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Принцип'
+        verbose_name_plural = 'Принципы'
+
+
+class Products(models.Model):
+    title = models.CharField(_("title"), max_length=50)
+    description = models.TextField(_("description"), max_length=100)
+    image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
+
+

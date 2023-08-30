@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Language
+from .models import Practice, Language, Principle, Products, Experience
 
 
 class LanguageAdmin(admin.ModelAdmin):
@@ -10,9 +10,33 @@ class LanguageAdmin(admin.ModelAdmin):
 admin.site.register(Language, LanguageAdmin)
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class PracticeAdmin(admin.ModelAdmin):
     list_display = ['title', 'image', 'description']
     ordering = ['id']
 
 
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Practice, PracticeAdmin)
+
+
+class PrincipleAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    ordering = ['id']
+
+
+admin.site.register(Principle, PrincipleAdmin)
+
+
+class ProductsAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    ordering = ['id']
+
+
+admin.site.register(Products, ProductsAdmin)
+
+
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    ordering = ['id']
+
+
+admin.site.register(Experience, ExperienceAdmin)
