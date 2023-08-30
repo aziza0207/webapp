@@ -1,12 +1,18 @@
 from django.contrib import admin
-
-from django.contrib import admin
-from .models import Image
+from .models import Category, Language
 
 
-class ImageAdmin(admin.ModelAdmin):
-    list_display = ['url']
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ['title']
     ordering = ['id']
 
 
-admin.site.register(Image, ImageAdmin)
+admin.site.register(Language, LanguageAdmin)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['title', 'image', 'description']
+    ordering = ['id']
+
+
+admin.site.register(Category, CategoryAdmin)
