@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -27,7 +27,8 @@ from drf_spectacular.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/docs/', SpectacularAPIView.as_view(), name='api-schema'),
-    path('api/schema/', SpectacularSwaggerView.as_view(url_name='api-schema'))
+    path('api/schema/', SpectacularSwaggerView.as_view(url_name='api-schema')),
+    path('api/', include('web.urls'))
 ]
 
 
