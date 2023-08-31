@@ -2,22 +2,12 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 
-class Language(models.Model):
-    title = models.CharField(_("title"), max_length=20)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Язык'
-        verbose_name_plural = 'Языки'
-
-
 class Practice(models.Model):
     title = models.CharField(_("title"), max_length=100)
     image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
     description = models.TextField(_("description"), max_length=500)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -29,7 +19,8 @@ class Practice(models.Model):
 
 class Experience(models.Model):
     title = models.CharField(_("title"), max_length=100)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -41,7 +32,8 @@ class Experience(models.Model):
 
 class Principle(models.Model):
     title = models.CharField(_("title"), max_length=100)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -55,10 +47,9 @@ class Products(models.Model):
     title = models.CharField(_("title"), max_length=50)
     description = models.TextField(_("description"), max_length=100)
     image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
-
-
