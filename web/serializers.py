@@ -5,7 +5,7 @@ from .models import Principle, Experience, Products, Practice, Contacts
 class PrincipleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Principle
-        fields = ['title', 'image', 'description']
+        fields = ['title']
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
