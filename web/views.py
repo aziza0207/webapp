@@ -1,9 +1,9 @@
 from rest_framework import generics
-from .models import Products, Practice, Principle, Experience
+from .models import Products, Practice, Principle, Experience, Contacts
 from .serializers import (ProductsSerializer,
                           PracticeSerializer,
                           ExperienceSerializer,
-                          PrincipleSerializer
+                          PrincipleSerializer, ContactsSerializer
                           )
 
 
@@ -25,3 +25,8 @@ class PrincipleListView(generics.ListAPIView):
 class ExperienceListView(generics.ListAPIView):
     serializer_class = ExperienceSerializer
     queryset = Experience.objects.all()
+
+
+class ContactsListView(generics.ListAPIView):
+    serializer_class = ContactsSerializer
+    queryset = Contacts.objects.all()

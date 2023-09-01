@@ -1,4 +1,4 @@
-from .models import Practice, Principle, Experience, Products
+from .models import Practice, Principle, Experience, Products, Contacts
 from modeltranslation.translator import TranslationOptions, register
 
 
@@ -20,3 +20,8 @@ class TranslationsOptions(TranslationOptions):
 @register(Experience)
 class TranslationsOptions(TranslationOptions):
     fields = ("title",)
+
+
+@register(Contacts)
+class TranslationsOptions(TranslationOptions):
+    fields = ("address",)
