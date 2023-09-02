@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Principle, Experience, Products, Practice, Contacts
+from .models import Principle, Experience, Products, Practice, Contacts, Value
 
 
 class PrincipleSerializer(serializers.ModelSerializer):
@@ -34,3 +34,9 @@ class ContactsSerializer(serializers.ModelSerializer):
         fields = ['phone',
                   'email',
                   'address']
+
+
+class ValueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Value
+        fields = ['title']
