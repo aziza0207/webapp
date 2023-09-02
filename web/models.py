@@ -76,3 +76,11 @@ class Value(models.Model):
     class Meta:
         verbose_name = 'Ценность'
         verbose_name_plural = 'Ценности'
+
+
+class Photo(models.Model):
+    url = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+
+
+class Video(models.Model):
+    url = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
