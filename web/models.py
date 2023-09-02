@@ -63,3 +63,16 @@ class Contacts(models.Model):
     class Meta:
         verbose_name = 'Контакты'
         verbose_name_plural = 'Контакты'
+
+
+class Value(models.Model):
+    title = models.CharField(_("title"), max_length=100)
+    is_active = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Ценность'
+        verbose_name_plural = 'Ценности'
