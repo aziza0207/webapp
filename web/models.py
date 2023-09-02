@@ -79,8 +79,22 @@ class Value(models.Model):
 
 
 class Photo(models.Model):
-    url = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+    url = models.ImageField(_("image"), upload_to='images/')
+
+    def __str__(self):
+        return self.url
+
+    class Meta:
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фото'
 
 
 class Video(models.Model):
-    url = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+    url = models.ImageField(_("image"), upload_to='images/')
+
+    def __str__(self):
+        return self.url
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'

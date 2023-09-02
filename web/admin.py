@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Practice, Principle, Products, Experience, Contacts, Value
+from .models import Practice, Principle, Products, Experience, Contacts, Value, Photo, Video
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -103,3 +103,17 @@ class ValueAdmin(TranslationAdmin):
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
+
+
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ['url']
+
+
+admin.site.register(Photo, PhotoAdmin)
+
+
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ['url']
+
+
+admin.site.register(Video, VideoAdmin)
