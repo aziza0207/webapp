@@ -49,7 +49,7 @@ class ValueListView(generics.ListAPIView):
 
 
 class PhotoView(generics.ListAPIView):
-    serializer_class = ValueSerializer
+    serializer_class = PhotoSerializer
     queryset = Photo.objects.all()
 
 
