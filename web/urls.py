@@ -14,7 +14,7 @@ urlpatterns = [path('products/', ProductsListView.as_view(), name='products'),
                path('principle/', PrincipleListView.as_view(), name='principle'),
                path('experience/', ExperienceListView.as_view(), name='experience'),
                path('contacts/', ContactsListView.as_view(), name='contacts'),
-               path('values/', VideoView.as_view(), name='values'),
+               path('values/', ValueListView.as_view(), name='values'),
                path('photo/', PhotoView.as_view(), name='photo'),
                path('video/', VideoView.as_view(), name='video')
                ]
