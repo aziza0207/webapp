@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'web',
     'modeltranslation',
-    'jazzmin',
     'django.contrib.admin'
 ]
 
