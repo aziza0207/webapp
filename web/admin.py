@@ -1,11 +1,13 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import Practice, Principle, Products, Experience, Contacts, Value, Photo, Video
 from modeltranslation.admin import TranslationAdmin
 
 
 @admin.register(Practice)
 class PracticeAdmin(TranslationAdmin):
-    list_display = ("title", "description")
+
+    list_display = ("title", "description",)
 
     group_fieldsets = True
 
@@ -39,6 +41,7 @@ class PrincipleAdmin(TranslationAdmin):
 
 @admin.register(Products)
 class ProductsAdmin(TranslationAdmin):
+
     list_display = ("title",)
 
     group_fieldsets = True
