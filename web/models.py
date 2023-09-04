@@ -18,7 +18,7 @@ class Practice(models.Model):
 
 
 class Experience(models.Model):
-    title = models.CharField(_("title"), max_length=100)
+    title = models.CharField(_("title"), max_length=120)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -44,7 +44,7 @@ class Principle(models.Model):
 
 
 class Products(models.Model):
-    title = models.CharField(_("title"), max_length=50)
+    title = models.CharField(_("title"), max_length=25)
     description = models.TextField(_("description"), max_length=100)
     image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
