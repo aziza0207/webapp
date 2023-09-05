@@ -7,7 +7,7 @@ services:
         volumes:
           - .:/usr/scr/app
         ports:
-          - "8083:8003"
+          - "8003:8003"
 
         depends_on:
           - pgdb
@@ -21,7 +21,6 @@ services:
           - pgdata:/var/lib/postgres/data/
 volumes:
     pgdata:
-
 
 
 
