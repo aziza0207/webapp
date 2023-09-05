@@ -7,7 +7,7 @@ from modeltranslation.admin import TranslationAdmin
 @admin.register(Practice)
 class PracticeAdmin(TranslationAdmin):
 
-    list_display = ("title", "description",)
+    list_display = ("title", "description", )
 
     group_fieldsets = True
 
@@ -41,7 +41,6 @@ class PrincipleAdmin(TranslationAdmin):
 
 @admin.register(Products)
 class ProductsAdmin(TranslationAdmin):
-
     list_display = ("title",)
 
     group_fieldsets = True
@@ -109,7 +108,12 @@ class ValueAdmin(TranslationAdmin):
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ['url']
+    def image_tag(self, obj):
+        return format_html('<img src="{}" />'.format(obj.url.url))
+
+    image_tag.short_description = 'Image'
+
+    list_display = ['image_tag', ]
 
 
 admin.site.register(Photo, PhotoAdmin)

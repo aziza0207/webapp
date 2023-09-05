@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from environ import Env
+
 from requests.utils import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -158,3 +159,4 @@ LOCALE_PATHS = [
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
 MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'ky')
+
