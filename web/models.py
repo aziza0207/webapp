@@ -4,12 +4,13 @@ from django.utils.translation import gettext as _
 
 
 class Practice(models.Model):
+    """ Модель описывает деятельность компании """
+
     title = models.CharField(_("title"), max_length=100)
-    image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+    image = models.ImageField(_("image"), help_text="Разрешение 1600x1300", upload_to='images/', null=True, blank=True)
     description = models.TextField(_("description"), max_length=500)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
-
 
     def __str__(self):
         return self.title
@@ -20,6 +21,8 @@ class Practice(models.Model):
 
 
 class Experience(models.Model):
+    """ Модель описывает опыт компании """
+
     title = models.CharField(_("title"), max_length=120)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -33,6 +36,8 @@ class Experience(models.Model):
 
 
 class Principle(models.Model):
+    """ Модель описывает принципы компании """
+
     title = models.CharField(_("title"), max_length=100)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
@@ -46,9 +51,11 @@ class Principle(models.Model):
 
 
 class Products(models.Model):
+    """ Модель описывает продукты компании """
+
     title = models.CharField(_("title"), max_length=25)
     description = models.TextField(_("description"), max_length=100)
-    image = models.ImageField(_("image"), upload_to='images/', null=True, blank=True)
+    image = models.ImageField(_("image"), help_text="Разрешение 250x200", upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
@@ -68,6 +75,8 @@ class Contacts(models.Model):
 
 
 class Value(models.Model):
+    """ Модель описывает ценности компании """
+
     title = models.CharField(_("title"), max_length=100)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -81,9 +90,7 @@ class Value(models.Model):
 
 
 class Photo(models.Model):
-    url = models.ImageField(_("image"), upload_to='images/')
-
-
+    url = models.ImageField(_("image"), help_text="Разрешение 1500х900", upload_to='images/')
 
     class Meta:
         verbose_name = 'Фото'
@@ -91,9 +98,7 @@ class Photo(models.Model):
 
 
 class Video(models.Model):
-    url = models.ImageField(_("image"), upload_to='images/')
-
-
+    url = models.FileField(_("video"), help_text="Разрешение 1900х500", upload_to='images/')
 
     class Meta:
         verbose_name = 'Видео'
