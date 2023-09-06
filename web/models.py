@@ -7,7 +7,7 @@ class Practice(models.Model):
     """ Модель описывает деятельность компании """
 
     title = models.CharField(_("title"), max_length=100)
-    image = models.ImageField(_("image"), help_text="Разрешение 1600x1300", upload_to='images/', null=True, blank=True)
+    image = models.ImageField(_("image"), help_text=_("Разрешение 1600x1300"), upload_to='images/', null=True, blank=True)
     description = models.TextField(_("description"), max_length=500)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -55,7 +55,7 @@ class Products(models.Model):
 
     title = models.CharField(_("title"), max_length=25)
     description = models.TextField(_("description"), max_length=100)
-    image = models.ImageField(_("image"), help_text="Разрешение 250x200", upload_to='images/', null=True, blank=True)
+    image = models.ImageField(_("image"), help_text=_("Разрешение 250x200"), upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
@@ -90,7 +90,7 @@ class Value(models.Model):
 
 
 class Photo(models.Model):
-    url = models.ImageField(_("image"), help_text="Разрешение 1500х900", upload_to='images/')
+    url = models.ImageField(_("image"), help_text=_("Разрешение 1500х900"), upload_to='images/')
 
     class Meta:
         verbose_name = 'Фото'
@@ -98,7 +98,7 @@ class Photo(models.Model):
 
 
 class Video(models.Model):
-    url = models.FileField(_("video"), help_text="Разрешение 1900х500", upload_to='images/')
+    url = models.FileField(_("video"), help_text=_("Разрешение 1900х500"), upload_to='images/')
 
     class Meta:
         verbose_name = 'Видео'
